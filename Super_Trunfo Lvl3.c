@@ -12,7 +12,7 @@ int main(){
    int Pontos1 = 50; // Números de Pontos Turísticos
    float Densidade1 = Populacao1/Area1; // Calculei População dividido por Area
    float PIBperCapita1 = PIB1/Populacao1; // Calculei PIB divido por População
-   float SuperPoder1 = Area1/Populacao1 + Pontos1 + Populacao1 + Area1 + PIB1 + PIBperCapita1;
+   float SuperPoder1 = Area1/Populacao1 + Pontos1 + Populacao1 + Area1 + PIB1 + PIBperCapita1; // Calculei o Super Poder com a Soma
    
   // Variáveis da Carta 2 (Rio de Janeiro) //
    char Estado2 = 'B'; // Estado
@@ -24,10 +24,10 @@ int main(){
    int Pontos2 = 30; //  Números de pontos Turísticos
    float Densidade2 = Populacao2/Area2; // Calculei População dividido por Area
    float PIBperCapita2 = PIB2/Populacao2; // Calculei PIB divido por População
-   float SuperPoder2 = Area2/Populacao2 + Pontos2 + Populacao2 + Area2 + PIB2 + PIBperCapita2;
+   float SuperPoder2 = Area2/Populacao2 + Pontos2 + Populacao2 + Area2 + PIB2 + PIBperCapita2; // Calculei o Super Poder com a Soma
 
     // Poder das Cartas //
-    unsigned int Poder1 = SuperPoder1 > SuperPoder2;
+    unsigned int Poder1 = SuperPoder1 > SuperPoder2;   // Fiz a comparação do Poder delas
     unsigned int Poder2 = SuperPoder2 > SuperPoder1;
 
 
@@ -42,7 +42,7 @@ printf("---------------------------------------\n"); // Coloquei isso pra ajudar
    printf("Numeros de Pontos Turisticos: %d\n", Pontos1); // Esse printf seleciona o Número inteiro e depois mostra ela
    printf("Densidade Populacional: %.2f\n", Densidade1); //Densidade Populacional mostrada em duas casa decimais
    printf("PIB per Capita: R$%.2f\n", PIBperCapita1); //PIB per Capita mostrada em Real com duas casas decimais
-   printf("Super Poder: %.1f\n", SuperPoder1);
+   printf("Super Poder: %.1f\n", SuperPoder1); // Mostrei o Poder da Carta 1
 
 printf("---------------------------------------\n"); 
 
@@ -56,13 +56,13 @@ printf("Carta 2:\n"); //Segunda Carta
    printf("Numeros de Pontos Turisticos: %d\n", Pontos2);
    printf("Densidade Populacional: %.2f\n", Densidade2); //Densidade Populacional mostrada em duas casa decimais
    printf("PIB per Capita: R$%.2f\n", PIBperCapita2); //PIB per Capita mostrada em Real com duas casas decimais
-   printf("Super Poder: %.1f\n", SuperPoder2);
+   printf("Super Poder: %.1f\n", SuperPoder2); // Mostrei o Poder da Carta 2
 printf("---------------------------------------\n");
 // A segunda carta segue o mesmo padrão da Primeira Carta
 
    // Comparação e Resultado das duas Cartas //
 
-   printf("Carta'A' e Vencedor?: %d\n", Poder1);
+   printf("Carta'A' e Vencedor?: %d\n", Poder1);  //Mostrei o Resultado da Comparação
    printf("Carta'B' e Vencedor?: %d\n", Poder2);
 
    printf("---------------------------------------\n");
@@ -71,4 +71,5 @@ printf("---------------------------------------\n");
 
 
     return 0;
+
 }
