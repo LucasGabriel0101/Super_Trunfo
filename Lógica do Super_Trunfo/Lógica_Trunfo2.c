@@ -1,14 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 // COLOQUEI PALAVRAS SEM ACENTO PORQUE MEU TERMINAL NÃO ACEITA E APARECE NÚMEROS E CARACTERES ALEATÓRIOS EM VEZ, NÃO SEI PORQUE...
  // Variáveis da Carta 1 (São Paulo) //
 int main(){
-    int escolhaJogador, escolhaComputador;
-     srand(time(0));
-
-
+    int escolhaJogador;
+     
    char Cidade1[] = "Sao Paulo"; // Nome da Cidade
    int Populacao1 = 12325000; // Sua População
    float Area1 =  1521.110; // Sua Área
@@ -22,12 +19,12 @@ int main(){
    int Populacao2 = 6748000; // Sua População
    float Area2 =  1200.250; //  Área
    float PIB2 = 300.50 * 1000000000.0; // PIB
-   int Pontos2 = 30; //  Números de pontos Turísticos
+   int Pontos2 = 50; //  Números de pontos Turísticos  ((COLOQUEI 50 PARA TESTAR O "EMPATE NO RESULTADO"))
    float Densidade2 = Populacao2/Area2; // Calculei População dividido por Area
    
 
 printf("---------------------------------------\n"); // Coloquei isso pra ajudar a separar as cartas uma da outra
-   printf(" ### Carta Jogador ###\n"); // Nome da Carta
+   printf(" ### Carta Jogador ###\n"); // Carta do Jogador ( SÃO PAULO)
    printf("Nome da Cidade: %s\n", Cidade1); // Esse printf seleciona a String e depois mostra ela
    printf("Populacao: (Vence o MAIOR VALOR) %d\n", Populacao1); // Esse printf seleciona o número Inteiro, pode ser %d ou %i, e depois mostra ele
    printf("Area em KM: (Vence o MAIOR VALOR) %.2f\n", Area1); // Esse printf seleciona o número flutuante (decimais) e depois mostra ele
@@ -36,7 +33,7 @@ printf("---------------------------------------\n"); // Coloquei isso pra ajudar
    printf("Densidade Demografica: (Vence o MENOR VALOR) %.2f\n", Densidade1); //Densidade Populacional mostrada em duas casa decimais
 printf("---------------------------------------\n"); 
 printf("### Carta do Computador ###\n"); 
-   printf("Nome da Cidade: %s\n", Cidade2);
+   printf("Nome da Cidade: %s\n", Cidade2); //Carta do computador( RIO DE JANEIRO)
    printf("Populacao: (Vence o MAIOR VALOR) %d\n", Populacao2);
    printf("Area em KM: (Vence o MAIOR VALOR) %f\n", Area2);
    printf("PIB (Bilhoes): (Vence o MAIOR VALOR) %.2f\n", PIB2);
@@ -45,7 +42,7 @@ printf("### Carta do Computador ###\n");
 printf("---------------------------------------\n");
 
 printf(" Comece a Comparacao de Atributos\n");
-pprintf("Nome da Cidade: %s\n", Cidade1);
+printf("Nome da Cidade: %s\n", Cidade1);
 printf("Nome da Cidade: %s\n", Cidade2);
     printf("Escolha um Atributo:\n");
     printf("1. Populacao\n");
@@ -56,68 +53,79 @@ printf("Nome da Cidade: %s\n", Cidade2);
     printf("Escolha:  ");
     scanf("%d", &escolhaJogador);
 
-    escolhaComputador = rand() % 5 + 1;
 
-
-    switch (escolhaJogador)
+   switch (escolhaJogador)
     {
-    case 1:
-        printf("Jogador: Populacao -  %d\n", Populacao1);
-        break;
-    case 2:
-        printf("Jogador: Area - %f\n", Area1);
-        break;
-    case 3:
-        printf("Jogador: PIB  - %.2f\n", PIB1);
-        break;
-    case 4:
-        printf("Jogador: Numero de pontos turisticos - %d\n",Pontos1);
-        break;
-    case 5:
-        printf("Jogador: Densidade demografica %.2f\n", Densidade1);
-        break;
-    default:
-        printf("Opcao invalida\n");
+        case 1: // Populacao (Maior Vence)
+            printf("Populacao\n");
+            printf("%s: %d | %s: %d\n", Cidade1, Populacao1, Cidade2, Populacao2); // Mostrei as cidades e o número de população de cada uma
+            
+            if (Populacao1 > Populacao2) {
+                printf("### VENCEDOR: %s! (Maior Populacao) ###\n", Cidade1);    //Caso algum seja maior que a outra, essa carta ganha, ao contrário irá ser empate
+            } else if (Populacao2 > Populacao1) {
+                printf("### VENCEDOR: %s! (Maior Populacao) ###\n", Cidade2);
+            } else {
+                printf("### EMPATE! ###\n");
+            }
+            break;
+
+        case 2: // Area (Maior Vence)
+            printf("Area\n");
+            printf("%s: %.2f | %s: %.2f\n", Cidade1, Area1, Cidade2, Area2);  // Mostrei as cidades e o número da Area de cada uma
+            
+            if (Area1 > Area2) {
+                printf("### VENCEDOR: %s! (Maior Area) ###\n", Cidade1);
+            } else if (Area2 > Area1) {
+                printf("### VENCEDOR: %s! (Maior Area) ###\n", Cidade2);
+            } else {
+                printf("### EMPATE! ###\n");
+            }
+            break;
+
+        case 3: // PIB (Maior Vence)
+            printf("PIB\n");
+            printf("%s: %.2f | %s: %.2f\n", Cidade1, PIB1, Cidade2, PIB2); // Mostrei as cidades e o PIB de cada uma
+            
+            if (PIB1 > PIB2) {
+                printf("### VENCEDOR: %s! (Maior PIB) ###\n", Cidade1);
+            } else if (PIB2 > PIB1) {
+                printf("### VENCEDOR: %s! (Maior PIB) ###\n", Cidade2);
+            } else {
+                printf("### EMPATE! ###\n");
+            }
+            break;
+        
+        case 4: // Pontos Turisticos (Maior Vence)
+            printf("Numero de pontos turisticos\n");
+            printf("%s: %d | %s: %d\n", Cidade1, Pontos1, Cidade2, Pontos2); // Mostrei as cidades e o Numero de pontos turisticos de cada uma
+            
+            if (Pontos1 > Pontos2) {
+                printf("### VENCEDOR: %s! (Mais Pontos Turisticos) ###\n", Cidade1);
+            } else if (Pontos2 > Pontos1) {
+                printf("### VENCEDOR: %s! (Mais Pontos Turisticos) ###\n", Cidade2);
+            } else {
+                printf("### EMPATE! ###\n");
+            }
+            break;
+
+        case 5: // Densidade Demografica (Menor Vence)
+            printf("Densidade demografica\n");
+            printf("%s: %.2f | %s: %.2f\n", Cidade1, Densidade1, Cidade2, Densidade2); // Mostrei as cidades e a Densidade demográfica de cada uma
+            
+            // REGRA INVERTIDA: Vence o MENOR valor
+            if (Densidade1 < Densidade2) {
+                printf("### VENCEDOR: %s! (Menor Densidade) ###\n", Cidade1);
+            } else if (Densidade2 < Densidade1) {
+                printf("### VENCEDOR: %s! (Menor Densidade) ###\n", Cidade2);
+            } else {
+                printf("### EMPATE! ###\n");
+            }
+            break;
+
+        default:
+            printf("\nOpcao invalida. Reinicie para jogar.\n");
+            break;
     }
-
-    switch (escolhaComputador)
-    {
-    case 1:
-        printf("Computador: Populacao - %d\n", Populacao2);
-        break;
-    case 2:
-        printf("Computador: Area  %f\n", Area2);
-        break;
-    case 3:
-        printf("Computador: PIB %.2f\n", PIB2);
-        break;
-    case 4:
-        printf("Computador: Numero de pontos turisticos %d\n", Pontos2);
-        break;
-    case 5:
-        printf("Computador: Densidade demografica %.2f\n", Densidade2);
-        break;
-    }
-
-    if (escolhaComputador == escolhaJogador){
-        printf("Cidade 1: %s",&Cidade1);
-        printf("Cidade 2 : %s",&Cidade2);
-        printf("Atributo Escolhido: %d", escolhaJogador), ("%d", escolhaComputador);
-        printf("### Empatados! ###");
-
-    }else if 
-    ((escolhaJogador > escolhaComputador)) {
-        printf("Cidade 1: %s",&Cidade1);
-        printf("Cidade 2 : %s",&Cidade2);
-        printf("Atributo Escolhido: %d", escolhaJogador), ("%d", escolhaComputador);
-        printf("### Voce Ganhou! ###");
-     } else {
-        printf("Cidade 1: %s",&Cidade1);
-        printf("Cidade 2 : %s",&Cidade2);
-        printf("Atributo Escolhido: %d", escolhaJogador), ("%d", escolhaComputador);
-        printf("### Voce Perdeu! ###");
-     }
-
 
 return 0;
 }
